@@ -60,6 +60,14 @@ async function f(){
 
             let lcell = row.insertCell();
             let ltext = document.createTextNode('Edit');
+
+            let cell = row.insertCell();
+            let text = document.createTextNode('View Notes');
+            cell.className = "child"
+            cell.id = 'icon' + data[index].id
+            cell.setAttribute('hit', 0)
+            cell.setAttribute('onclick', "displayNotes("+ data[index].id +");");
+            cell.appendChild(text);
            
         }
 
