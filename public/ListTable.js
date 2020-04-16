@@ -10,12 +10,13 @@ async function f(){
 
         const sortColumns = ['date', 'priority', 'state']
         
-       
         
         for (let [index,key] of data.entries()) {
             let th = document.createElement("th");
             let text = document.createTextNode(key);
+            
             th.appendChild(text);
+           
             th.id = key + 0 
             if(sortColumns.indexOf(key) !== -1){
                 if(key === 'priority'){
@@ -29,17 +30,14 @@ async function f(){
             row.appendChild(th);
         }
 
-
-      
-
         let ths = document.createElement("th");
         ths.id = "edit0"
-        let texts = document.createTextNode('Edit');
+        let texts = document.createTextNode('edit');
         ths.appendChild(texts);
         row.appendChild(ths);
 
         let th = document.createElement("th");
-        let text = document.createTextNode('Notes');
+        let text = document.createTextNode('notes');
         th.id = "icon0"
         th.appendChild(text);
         row.appendChild(th);
@@ -49,7 +47,7 @@ async function f(){
         for (let [index, element] of data.entries()) {
             let row = table.insertRow();
             row.id = "row"+ data[index].id
-            
+           
           
             for (key in element) {
                 let cell = row.insertCell();
@@ -60,6 +58,10 @@ async function f(){
 
             let lcell = row.insertCell();
             let ltext = document.createTextNode('Edit');
+            lcell.className = "child"
+            lcell.id = 'edit' + data[index].id
+            lcell.setAttribute('onclick', "editTask("+ data[index].id +");");
+            lcell.appendChild(ltext);
 
             let cell = row.insertCell();
             let text = document.createTextNode('View Notes');
@@ -68,7 +70,6 @@ async function f(){
             cell.setAttribute('hit', 0)
             cell.setAttribute('onclick', "displayNotes("+ data[index].id +");");
             cell.appendChild(text);
-           
         }
 
     }
