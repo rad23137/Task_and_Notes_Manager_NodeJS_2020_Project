@@ -70,13 +70,13 @@ async function getLastTask(){
     lcell.setAttribute('onclick', "editTask(" + lastRow +");");
     lcell.appendChild(ltext);
 
+    let cell = row.insertCell();
     let text = document.createTextNode('View Notes');
     cell.className = "child"
     cell.id = 'icon' + lastRow
     cell.setAttribute('hit', 0)
     cell.setAttribute('onclick', "displayNotes("+ lastRow +");");
     cell.appendChild(text);
-
 
 }
 

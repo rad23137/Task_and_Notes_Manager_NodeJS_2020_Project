@@ -8,6 +8,9 @@ async function displayNotes(taskID){
 
         let myTable = document.getElementById('taskTable')
         let myDiv = document.createElement('div')
+        
+        myDiv.style.width='150px'
+        myDiv.style.textAlign='justified'
         myDiv.id = 'myDiv'+ taskID
         if(notes.length > 0){
             let ol = document.createElement('ol')
@@ -24,7 +27,7 @@ async function displayNotes(taskID){
 
             let x = document.createElement("INPUT");
             x.setAttribute("type", "text");
-            x.placeholder = "Enter Note"
+            x.placeholder = "Add a Note"
             x.id = 'inputNotes'+taskID
             myDiv.appendChild(x)
             

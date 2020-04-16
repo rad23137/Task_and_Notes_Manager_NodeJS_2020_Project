@@ -6,6 +6,7 @@ async function f(){
     
     function generateTableHead(table, data) {
         let thead = table.createTHead();
+        thead.className="thead-dark"
         let row = thead.insertRow();
 
         const sortColumns = ['date', 'priority', 'state']

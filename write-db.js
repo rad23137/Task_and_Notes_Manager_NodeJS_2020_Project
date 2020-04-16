@@ -2,7 +2,7 @@ const {db, Tasks, Notes} = require('./db')
 
 // adding some initial data
 async function addTask(){
-    await db.sync()
+    await db.sync({force:true})
 
     await Tasks.bulkCreate([
         {
